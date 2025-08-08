@@ -67,4 +67,6 @@ class BasePage:
 
         log.logger.info("Moving to an element: " + str(locator))
 
+        # This method is for move to an element. Adding this comment for Github push.
+
 
