@@ -1,0 +1,188 @@
+{
+  "ce0bbe6fa912ede023cf91de4e4778f1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "189ba396d6a58280",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/189ba396d6a58280",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: unconditional skip",
+      "time" : {
+        "start" : 1754638402819,
+        "stop" : 1754638402819,
+        "duration" : 0
+      }
+    } ]
+  },
+  "705ebb783bd450cb606fe8bd4d046829" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8c934e6ce1139b81",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/8c934e6ce1139b81",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: unconditional skip",
+      "time" : {
+        "start" : 1754638402825,
+        "stop" : 1754638402825,
+        "duration" : 0
+      }
+    } ]
+  },
+  "bbe94631e6481ed613e225400f9c5e4a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "caf743a15cffe3df",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/caf743a15cffe3df",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: unconditional skip",
+      "time" : {
+        "start" : 1754638402837,
+        "stop" : 1754638402837,
+        "duration" : 0
+      }
+    } ]
+  },
+  "91b1dc29cea18d297501d9c38735d9e6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "19a5daff18bd21eb",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/19a5daff18bd21eb",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: unconditional skip",
+      "time" : {
+        "start" : 1754638402832,
+        "stop" : 1754638402832,
+        "duration" : 0
+      }
+    } ]
+  },
+  "33e5a2dfba8dc5e9de976e752ffbf621" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8edc0e73412ca39a",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/8edc0e73412ca39a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1754638436409,
+        "stop" : 1754638439622,
+        "duration" : 3213
+      }
+    } ]
+  },
+  "92acaff2eecccf2f3b60b7aa4c61249d" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ec2291e1d56c925a",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/ec2291e1d56c925a",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+      "time" : {
+        "start" : 1754638419431,
+        "stop" : 1754638422674,
+        "duration" : 3243
+      }
+    } ]
+  },
+  "07c08e86b397d9e058f6fd41b0601ff6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d0b2d08436fb4ec0",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/d0b2d08436fb4ec0",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: unconditional skip",
+      "time" : {
+        "start" : 1754638402813,
+        "stop" : 1754638402813,
+        "duration" : 0
+      }
+    } ]
+  },
+  "33be9db418c36d2763c97876c669ec3f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a6ccb3019fabf2f3",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/a6ccb3019fabf2f3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1754638452099,
+        "stop" : 1754638455188,
+        "duration" : 3089
+      }
+    } ]
+  },
+  "5304b762e52769af7e709ec6e07f7c54" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "60d76ceff2a7170f",
+      "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/60d76ceff2a7170f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1754638466875,
+        "stop" : 1754638470337,
+        "duration" : 3462
+      }
+    } ]
+  }
+}

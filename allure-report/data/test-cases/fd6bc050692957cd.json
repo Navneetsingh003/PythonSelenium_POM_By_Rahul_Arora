@@ -1,0 +1,136 @@
+{
+  "uid" : "fd6bc050692957cd",
+  "name" : "test_get_car_names_and_prices[chrome-Toyota-Toyota Cars]",
+  "fullName" : "test_carwale.TestCarwale#test_get_car_names_and_prices",
+  "historyId" : "5304b762e52769af7e709ec6e07f7c54",
+  "time" : {
+    "start" : 1754639068413,
+    "stop" : 1754639071713,
+    "duration" : 3300
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_init",
+    "time" : {
+      "start" : 1754639056559,
+      "stop" : 1754639068412,
+      "duration" : 11853
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "log_on_failure",
+    "time" : {
+      "start" : 1754639068412,
+      "stop" : 1754639068412,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "4649b83c5ed0ed65",
+      "name" : "log",
+      "source" : "4649b83c5ed0ed65.txt",
+      "type" : "text/plain",
+      "size" : 303
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "log_on_failure::0",
+    "time" : {
+      "start" : 1754639071713,
+      "stop" : 1754639071713,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "browser_init::0",
+    "time" : {
+      "start" : 1754639071727,
+      "stop" : 1754639071926,
+      "duration" : 199
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_carwale"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCarwale"
+  }, {
+    "name" : "host",
+    "value" : "INBGL1WLX54564"
+  }, {
+    "name" : "thread",
+    "value" : "11788-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_carwale"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "brand_title",
+    "value" : "'Toyota Cars'"
+  }, {
+    "name" : "browser_init",
+    "value" : "'chrome'"
+  }, {
+    "name" : "car_brand",
+    "value" : "'Toyota'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fd6bc050692957cd.json",
+  "parameterValues" : [ "'Toyota Cars'", "'chrome'", "'Toyota'" ]
+}

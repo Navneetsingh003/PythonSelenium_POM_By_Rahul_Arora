@@ -1,0 +1,146 @@
+{
+  "uid" : "bb6d961ba87cb488",
+  "name" : "test_get_car_names_and_prices[chrome-BMW-BMWsss Cars]",
+  "fullName" : "test_carwale.TestCarwale#test_get_car_names_and_prices",
+  "historyId" : "92acaff2eecccf2f3b60b7aa4c61249d",
+  "time" : {
+    "start" : 1754638419431,
+    "stop" : 1754638422674,
+    "duration" : 3243
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+  "statusTrace" : "self = <Testcases.test_carwale.TestCarwale object at 0x000001E578DAFF90>\ncar_brand = 'BMW', brand_title = 'BMWsss Cars'\n\n    @pytest.mark.parametrize(\"car_brand, brand_title\",\n                             excel_data_provider.get_data(\"NewCars\"))\n    def test_get_car_names_and_prices(self, car_brand, brand_title):\n        log.logger.info(\"Test select cars started\")\n    \n        car_home = CarWaleHomePage(self.driver)\n        car_base = CarBase(self.driver)\n    \n        if car_brand == \"BMW\":\n            car_home.find_new_cars().goto_bmw()  # Since the HomePage class find_new_cars() method is returning\n            # object of NewCarsPage class, we can directly call NewCarsPage methods by creating object of HomePage\n            # class and calling it's method.\n    \n            car_title = car_base.get_car_title()\n>           assert car_title == brand_title, \"Car title does not match for \" + car_brand + \" car.\"\nE           AssertionError: Car title does not match for BMW car.\nE           assert 'BMW Cars' == 'BMWsss Cars'\nE             \nE             - BMWsss Cars\nE             ?    ---\nE             + BMW Cars\n\ntest_carwale.py:74: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_init",
+    "time" : {
+      "start" : 1754638402846,
+      "stop" : 1754638419430,
+      "duration" : 16584
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "log_on_failure",
+    "time" : {
+      "start" : 1754638419430,
+      "stop" : 1754638419431,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+    "statusTrace" : "self = <Testcases.test_carwale.TestCarwale object at 0x000001E578DAFF90>\ncar_brand = 'BMW', brand_title = 'BMWsss Cars'\n\n    @pytest.mark.parametrize(\"car_brand, brand_title\",\n                             excel_data_provider.get_data(\"NewCars\"))\n    def test_get_car_names_and_prices(self, car_brand, brand_title):\n        log.logger.info(\"Test select cars started\")\n    \n        car_home = CarWaleHomePage(self.driver)\n        car_base = CarBase(self.driver)\n    \n        if car_brand == \"BMW\":\n            car_home.find_new_cars().goto_bmw()  # Since the HomePage class find_new_cars() method is returning\n            # object of NewCarsPage class, we can directly call NewCarsPage methods by creating object of HomePage\n            # class and calling it's method.\n    \n            car_title = car_base.get_car_title()\n>           assert car_title == brand_title, \"Car title does not match for \" + car_brand + \" car.\"\nE           AssertionError: Car title does not match for BMW car.\nE           assert 'BMW Cars' == 'BMWsss Cars'\nE             \nE             - BMWsss Cars\nE             ?    ---\nE             + BMW Cars\n\ntest_carwale.py:74: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "b9d071bb5d773991",
+      "name" : "log",
+      "source" : "b9d071bb5d773991.txt",
+      "type" : "text/plain",
+      "size" : 300
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "log_on_failure::0",
+    "time" : {
+      "start" : 1754638423259,
+      "stop" : 1754638423467,
+      "duration" : 208
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "4a3280d71098f9e0",
+      "name" : "dologin",
+      "source" : "4a3280d71098f9e0.png",
+      "type" : "image/png",
+      "size" : 130421
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  }, {
+    "name" : "browser_init::0",
+    "time" : {
+      "start" : 1754638423469,
+      "stop" : 1754638423689,
+      "duration" : 220
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_carwale"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCarwale"
+  }, {
+    "name" : "host",
+    "value" : "INBGL1WLX54564"
+  }, {
+    "name" : "thread",
+    "value" : "34280-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_carwale"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "brand_title",
+    "value" : "'BMWsss Cars'"
+  }, {
+    "name" : "browser_init",
+    "value" : "'chrome'"
+  }, {
+    "name" : "car_brand",
+    "value" : "'BMW'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bb6d961ba87cb488.json",
+  "parameterValues" : [ "'BMWsss Cars'", "'chrome'", "'BMW'" ]
+}

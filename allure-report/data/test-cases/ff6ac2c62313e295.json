@@ -1,0 +1,136 @@
+{
+  "uid" : "ff6ac2c62313e295",
+  "name" : "test_get_car_names_and_prices[chrome-KIA-Kia Cars]",
+  "fullName" : "test_carwale.TestCarwale#test_get_car_names_and_prices",
+  "historyId" : "33be9db418c36d2763c97876c669ec3f",
+  "time" : {
+    "start" : 1754638452099,
+    "stop" : 1754638455188,
+    "duration" : 3089
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_init",
+    "time" : {
+      "start" : 1754638439856,
+      "stop" : 1754638452098,
+      "duration" : 12242
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "log_on_failure",
+    "time" : {
+      "start" : 1754638452098,
+      "stop" : 1754638452098,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "d19c148d23f58d16",
+      "name" : "log",
+      "source" : "d19c148d23f58d16.txt",
+      "type" : "text/plain",
+      "size" : 300
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "log_on_failure::0",
+    "time" : {
+      "start" : 1754638455197,
+      "stop" : 1754638455197,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "browser_init::0",
+    "time" : {
+      "start" : 1754638455200,
+      "stop" : 1754638455421,
+      "duration" : 221
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_carwale"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCarwale"
+  }, {
+    "name" : "host",
+    "value" : "INBGL1WLX54564"
+  }, {
+    "name" : "thread",
+    "value" : "34280-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_carwale"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "brand_title",
+    "value" : "'Kia Cars'"
+  }, {
+    "name" : "browser_init",
+    "value" : "'chrome'"
+  }, {
+    "name" : "car_brand",
+    "value" : "'KIA'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ff6ac2c62313e295.json",
+  "parameterValues" : [ "'Kia Cars'", "'chrome'", "'KIA'" ]
+}

@@ -1,0 +1,146 @@
+{
+  "uid" : "b72fee9c4fa747c6",
+  "name" : "test_get_car_names_and_prices[chrome-BMW-BMWsss Cars]",
+  "fullName" : "test_carwale.TestCarwale#test_get_car_names_and_prices",
+  "historyId" : "92acaff2eecccf2f3b60b7aa4c61249d",
+  "time" : {
+    "start" : 1754639010804,
+    "stop" : 1754639018132,
+    "duration" : 7328
+  },
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[contains(text(),'Find New Cars')]\"}\n  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception\nStacktrace:\n\tGetHandleVerifier [0x0x7ff7a46ee415+77285]\n\tGetHandleVerifier [0x0x7ff7a46ee470+77376]\n\t(No symbol) [0x0x7ff7a44b9a6a]\n\t(No symbol) [0x0x7ff7a4510406]\n\t(No symbol) [0x0x7ff7a45106bc]\n\t(No symbol) [0x0x7ff7a4563ac7]\n\t(No symbol) [0x0x7ff7a453864f]\n\t(No symbol) [0x0x7ff7a456087f]\n\t(No symbol) [0x0x7ff7a45383e3]\n\t(No symbol) [0x0x7ff7a4501521]\n\t(No symbol) [0x0x7ff7a45022b3]\n\tGetHandleVerifier [0x0x7ff7a49d1efd+3107021]\n\tGetHandleVerifier [0x0x7ff7a49cc29d+3083373]\n\tGetHandleVerifier [0x0x7ff7a49ebedd+3213485]\n\tGetHandleVerifier [0x0x7ff7a470884e+184862]\n\tGetHandleVerifier [0x0x7ff7a471055f+216879]\n\tGetHandleVerifier [0x0x7ff7a46f7084+113236]\n\tGetHandleVerifier [0x0x7ff7a46f7239+113673]\n\tGetHandleVerifier [0x0x7ff7a46de298+11368]\n\tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\n\tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]",
+  "statusTrace" : "self = <Testcases.test_carwale.TestCarwale object at 0x000001C4FCFBE8D0>\ncar_brand = 'BMW', brand_title = 'BMWsss Cars'\n\n    @pytest.mark.parametrize(\"car_brand, brand_title\",\n                             excel_data_provider.get_data(\"NewCars\"))\n    def test_get_car_names_and_prices(self, car_brand, brand_title):\n        log.logger.info(\"Test select cars started\")\n    \n        car_home = CarWaleHomePage(self.driver)\n        car_base = CarBase(self.driver)\n    \n        if car_brand == \"BMW\":\n>           car_home.find_new_cars().goto_bmw()  # Since the HomePage class find_new_cars() method is returning\n            ^^^^^^^^^^^^^^^^^^^^^^^^\n\ntest_carwale.py:69: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\Pages\\CarWaleHomePage.py:12: in find_new_cars\n    self.do_click(\"find_new_cars_XPATH\")\n..\\Pages\\BasePage.py:21: in do_click\n    self.driver.find_element(By.XPATH, config_reader.read_config(\"locators\", locator)).click()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\venv\\Lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:922: in find_element\n    return self.execute(Command.FIND_ELEMENT, {\"using\": by, \"value\": value})[\"value\"]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\venv\\Lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:454: in execute\n    self.error_handler.check_response(response)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x000001C4FB295FD0>\nresponse = {'status': 404, 'value': '{\"value\":{\"error\":\"no such element\",\"message\":\"no such element: Unable to locate element: {\\...ff7a46de298+11368]\\\\n\\\\tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\\\\n\\\\tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]\\\\n\"}}'}\n\n    def check_response(self, response: dict[str, Any]) -> None:\n        \"\"\"Checks that a JSON response from the WebDriver does not have an\n        error.\n    \n        :Args:\n         - response - The JSON response from the WebDriver server as a dictionary\n           object.\n    \n        :Raises: If the response contains an error message.\n        \"\"\"\n        status = response.get(\"status\", None)\n        if not status or status == ErrorCode.SUCCESS:\n            return\n        value = None\n        message = response.get(\"message\", \"\")\n        screen: str = response.get(\"screen\", \"\")\n        stacktrace = None\n        if isinstance(status, int):\n            value_json = response.get(\"value\", None)\n            if value_json and isinstance(value_json, str):\n                try:\n                    value = json.loads(value_json)\n                    if isinstance(value, dict):\n                        if len(value) == 1:\n                            value = value[\"value\"]\n                        status = value.get(\"error\", None)\n                        if not status:\n                            status = value.get(\"status\", ErrorCode.UNKNOWN_ERROR)\n                            message = value.get(\"value\") or value.get(\"message\")\n                            if not isinstance(message, str):\n                                value = message\n                                message = message.get(\"message\")\n                        else:\n                            message = value.get(\"message\", None)\n                except ValueError:\n                    pass\n    \n        exception_class: type[WebDriverException]\n        e = ErrorCode()\n        error_codes = [item for item in dir(e) if not item.startswith(\"__\")]\n        for error_code in error_codes:\n            error_info = getattr(ErrorCode, error_code)\n            if isinstance(error_info, list) and status in error_info:\n                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)\n                break\n        else:\n            exception_class = WebDriverException\n    \n        if not value:\n            value = response[\"value\"]\n        if isinstance(value, str):\n            raise exception_class(value)\n        if message == \"\" and \"message\" in value:\n            message = value[\"message\"]\n    \n        screen = None  # type: ignore[assignment]\n        if \"screen\" in value:\n            screen = value[\"screen\"]\n    \n        stacktrace = None\n        st_value = value.get(\"stackTrace\") or value.get(\"stacktrace\")\n        if st_value:\n            if isinstance(st_value, str):\n                stacktrace = st_value.split(\"\\n\")\n            else:\n                stacktrace = []\n                try:\n                    for frame in st_value:\n                        line = frame.get(\"lineNumber\", \"\")\n                        file = frame.get(\"fileName\", \"<anonymous>\")\n                        if line:\n                            file = f\"{file}:{line}\"\n                        meth = frame.get(\"methodName\", \"<anonymous>\")\n                        if \"className\" in frame:\n                            meth = f\"{frame['className']}.{meth}\"\n                        msg = \"    at %s (%s)\"\n                        msg = msg % (meth, file)\n                        stacktrace.append(msg)\n                except TypeError:\n                    pass\n        if exception_class == UnexpectedAlertPresentException:\n            alert_text = None\n            if \"data\" in value:\n                alert_text = value[\"data\"].get(\"text\")\n            elif \"alert\" in value:\n                alert_text = value[\"alert\"].get(\"text\")\n            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here\n>       raise exception_class(message, screen, stacktrace)\nE       selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[contains(text(),'Find New Cars')]\"}\nE         (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception\nE       Stacktrace:\nE       \tGetHandleVerifier [0x0x7ff7a46ee415+77285]\nE       \tGetHandleVerifier [0x0x7ff7a46ee470+77376]\nE       \t(No symbol) [0x0x7ff7a44b9a6a]\nE       \t(No symbol) [0x0x7ff7a4510406]\nE       \t(No symbol) [0x0x7ff7a45106bc]\nE       \t(No symbol) [0x0x7ff7a4563ac7]\nE       \t(No symbol) [0x0x7ff7a453864f]\nE       \t(No symbol) [0x0x7ff7a456087f]\nE       \t(No symbol) [0x0x7ff7a45383e3]\nE       \t(No symbol) [0x0x7ff7a4501521]\nE       \t(No symbol) [0x0x7ff7a45022b3]\nE       \tGetHandleVerifier [0x0x7ff7a49d1efd+3107021]\nE       \tGetHandleVerifier [0x0x7ff7a49cc29d+3083373]\nE       \tGetHandleVerifier [0x0x7ff7a49ebedd+3213485]\nE       \tGetHandleVerifier [0x0x7ff7a470884e+184862]\nE       \tGetHandleVerifier [0x0x7ff7a471055f+216879]\nE       \tGetHandleVerifier [0x0x7ff7a46f7084+113236]\nE       \tGetHandleVerifier [0x0x7ff7a46f7239+113673]\nE       \tGetHandleVerifier [0x0x7ff7a46de298+11368]\nE       \tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\nE       \tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]\n\n..\\venv\\Lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py:232: NoSuchElementException",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_init",
+    "time" : {
+      "start" : 1754638992644,
+      "stop" : 1754639010803,
+      "duration" : 18159
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "log_on_failure",
+    "time" : {
+      "start" : 1754639010804,
+      "stop" : 1754639010804,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[contains(text(),'Find New Cars')]\"}\n  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception\nStacktrace:\n\tGetHandleVerifier [0x0x7ff7a46ee415+77285]\n\tGetHandleVerifier [0x0x7ff7a46ee470+77376]\n\t(No symbol) [0x0x7ff7a44b9a6a]\n\t(No symbol) [0x0x7ff7a4510406]\n\t(No symbol) [0x0x7ff7a45106bc]\n\t(No symbol) [0x0x7ff7a4563ac7]\n\t(No symbol) [0x0x7ff7a453864f]\n\t(No symbol) [0x0x7ff7a456087f]\n\t(No symbol) [0x0x7ff7a45383e3]\n\t(No symbol) [0x0x7ff7a4501521]\n\t(No symbol) [0x0x7ff7a45022b3]\n\tGetHandleVerifier [0x0x7ff7a49d1efd+3107021]\n\tGetHandleVerifier [0x0x7ff7a49cc29d+3083373]\n\tGetHandleVerifier [0x0x7ff7a49ebedd+3213485]\n\tGetHandleVerifier [0x0x7ff7a470884e+184862]\n\tGetHandleVerifier [0x0x7ff7a471055f+216879]\n\tGetHandleVerifier [0x0x7ff7a46f7084+113236]\n\tGetHandleVerifier [0x0x7ff7a46f7239+113673]\n\tGetHandleVerifier [0x0x7ff7a46de298+11368]\n\tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\n\tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]",
+    "statusTrace" : "self = <Testcases.test_carwale.TestCarwale object at 0x000001C4FCFBE8D0>\ncar_brand = 'BMW', brand_title = 'BMWsss Cars'\n\n    @pytest.mark.parametrize(\"car_brand, brand_title\",\n                             excel_data_provider.get_data(\"NewCars\"))\n    def test_get_car_names_and_prices(self, car_brand, brand_title):\n        log.logger.info(\"Test select cars started\")\n    \n        car_home = CarWaleHomePage(self.driver)\n        car_base = CarBase(self.driver)\n    \n        if car_brand == \"BMW\":\n>           car_home.find_new_cars().goto_bmw()  # Since the HomePage class find_new_cars() method is returning\n            ^^^^^^^^^^^^^^^^^^^^^^^^\n\ntest_carwale.py:69: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\Pages\\CarWaleHomePage.py:12: in find_new_cars\n    self.do_click(\"find_new_cars_XPATH\")\n..\\Pages\\BasePage.py:21: in do_click\n    self.driver.find_element(By.XPATH, config_reader.read_config(\"locators\", locator)).click()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\venv\\Lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:922: in find_element\n    return self.execute(Command.FIND_ELEMENT, {\"using\": by, \"value\": value})[\"value\"]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\venv\\Lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:454: in execute\n    self.error_handler.check_response(response)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x000001C4FB295FD0>\nresponse = {'status': 404, 'value': '{\"value\":{\"error\":\"no such element\",\"message\":\"no such element: Unable to locate element: {\\...ff7a46de298+11368]\\\\n\\\\tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\\\\n\\\\tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]\\\\n\"}}'}\n\n    def check_response(self, response: dict[str, Any]) -> None:\n        \"\"\"Checks that a JSON response from the WebDriver does not have an\n        error.\n    \n        :Args:\n         - response - The JSON response from the WebDriver server as a dictionary\n           object.\n    \n        :Raises: If the response contains an error message.\n        \"\"\"\n        status = response.get(\"status\", None)\n        if not status or status == ErrorCode.SUCCESS:\n            return\n        value = None\n        message = response.get(\"message\", \"\")\n        screen: str = response.get(\"screen\", \"\")\n        stacktrace = None\n        if isinstance(status, int):\n            value_json = response.get(\"value\", None)\n            if value_json and isinstance(value_json, str):\n                try:\n                    value = json.loads(value_json)\n                    if isinstance(value, dict):\n                        if len(value) == 1:\n                            value = value[\"value\"]\n                        status = value.get(\"error\", None)\n                        if not status:\n                            status = value.get(\"status\", ErrorCode.UNKNOWN_ERROR)\n                            message = value.get(\"value\") or value.get(\"message\")\n                            if not isinstance(message, str):\n                                value = message\n                                message = message.get(\"message\")\n                        else:\n                            message = value.get(\"message\", None)\n                except ValueError:\n                    pass\n    \n        exception_class: type[WebDriverException]\n        e = ErrorCode()\n        error_codes = [item for item in dir(e) if not item.startswith(\"__\")]\n        for error_code in error_codes:\n            error_info = getattr(ErrorCode, error_code)\n            if isinstance(error_info, list) and status in error_info:\n                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)\n                break\n        else:\n            exception_class = WebDriverException\n    \n        if not value:\n            value = response[\"value\"]\n        if isinstance(value, str):\n            raise exception_class(value)\n        if message == \"\" and \"message\" in value:\n            message = value[\"message\"]\n    \n        screen = None  # type: ignore[assignment]\n        if \"screen\" in value:\n            screen = value[\"screen\"]\n    \n        stacktrace = None\n        st_value = value.get(\"stackTrace\") or value.get(\"stacktrace\")\n        if st_value:\n            if isinstance(st_value, str):\n                stacktrace = st_value.split(\"\\n\")\n            else:\n                stacktrace = []\n                try:\n                    for frame in st_value:\n                        line = frame.get(\"lineNumber\", \"\")\n                        file = frame.get(\"fileName\", \"<anonymous>\")\n                        if line:\n                            file = f\"{file}:{line}\"\n                        meth = frame.get(\"methodName\", \"<anonymous>\")\n                        if \"className\" in frame:\n                            meth = f\"{frame['className']}.{meth}\"\n                        msg = \"    at %s (%s)\"\n                        msg = msg % (meth, file)\n                        stacktrace.append(msg)\n                except TypeError:\n                    pass\n        if exception_class == UnexpectedAlertPresentException:\n            alert_text = None\n            if \"data\" in value:\n                alert_text = value[\"data\"].get(\"text\")\n            elif \"alert\" in value:\n                alert_text = value[\"alert\"].get(\"text\")\n            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here\n>       raise exception_class(message, screen, stacktrace)\nE       selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[contains(text(),'Find New Cars')]\"}\nE         (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception\nE       Stacktrace:\nE       \tGetHandleVerifier [0x0x7ff7a46ee415+77285]\nE       \tGetHandleVerifier [0x0x7ff7a46ee470+77376]\nE       \t(No symbol) [0x0x7ff7a44b9a6a]\nE       \t(No symbol) [0x0x7ff7a4510406]\nE       \t(No symbol) [0x0x7ff7a45106bc]\nE       \t(No symbol) [0x0x7ff7a4563ac7]\nE       \t(No symbol) [0x0x7ff7a453864f]\nE       \t(No symbol) [0x0x7ff7a456087f]\nE       \t(No symbol) [0x0x7ff7a45383e3]\nE       \t(No symbol) [0x0x7ff7a4501521]\nE       \t(No symbol) [0x0x7ff7a45022b3]\nE       \tGetHandleVerifier [0x0x7ff7a49d1efd+3107021]\nE       \tGetHandleVerifier [0x0x7ff7a49cc29d+3083373]\nE       \tGetHandleVerifier [0x0x7ff7a49ebedd+3213485]\nE       \tGetHandleVerifier [0x0x7ff7a470884e+184862]\nE       \tGetHandleVerifier [0x0x7ff7a471055f+216879]\nE       \tGetHandleVerifier [0x0x7ff7a46f7084+113236]\nE       \tGetHandleVerifier [0x0x7ff7a46f7239+113673]\nE       \tGetHandleVerifier [0x0x7ff7a46de298+11368]\nE       \tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\nE       \tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]\n\n..\\venv\\Lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py:232: NoSuchElementException",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "edda1032f5a59cba",
+      "name" : "log",
+      "source" : "edda1032f5a59cba.txt",
+      "type" : "text/plain",
+      "size" : 150
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "log_on_failure::0",
+    "time" : {
+      "start" : 1754639019292,
+      "stop" : 1754639019921,
+      "duration" : 629
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "37f111434c4d671b",
+      "name" : "dologin",
+      "source" : "37f111434c4d671b.png",
+      "type" : "image/png",
+      "size" : 885565
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  }, {
+    "name" : "browser_init::0",
+    "time" : {
+      "start" : 1754639019925,
+      "stop" : 1754639020488,
+      "duration" : 563
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_carwale"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCarwale"
+  }, {
+    "name" : "host",
+    "value" : "INBGL1WLX54564"
+  }, {
+    "name" : "thread",
+    "value" : "11788-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_carwale"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "brand_title",
+    "value" : "'BMWsss Cars'"
+  }, {
+    "name" : "browser_init",
+    "value" : "'chrome'"
+  }, {
+    "name" : "car_brand",
+    "value" : "'BMW'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b72fee9c4fa747c6.json",
+  "parameterValues" : [ "'BMWsss Cars'", "'chrome'", "'BMW'" ]
+}

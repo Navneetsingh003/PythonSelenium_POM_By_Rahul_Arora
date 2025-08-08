@@ -1,0 +1,191 @@
+{
+  "uid" : "6d10e8b9612d91f9",
+  "name" : "test_get_car_names_and_prices[chrome-BMW-BMWsss Cars]",
+  "fullName" : "test_carwale.TestCarwale#test_get_car_names_and_prices",
+  "historyId" : "92acaff2eecccf2f3b60b7aa4c61249d",
+  "time" : {
+    "start" : 1754639590337,
+    "stop" : 1754639593693,
+    "duration" : 3356
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+  "statusTrace" : "self = <Testcases.test_carwale.TestCarwale object at 0x00000201AB60F890>\ncar_brand = 'BMW', brand_title = 'BMWsss Cars'\n\n    @pytest.mark.parametrize(\"car_brand, brand_title\",\n                             excel_data_provider.get_data(\"NewCars\"))\n    def test_get_car_names_and_prices(self, car_brand, brand_title):\n        log.logger.info(\"Test select cars started\")\n    \n        car_home = CarWaleHomePage(self.driver)\n        car_base = CarBase(self.driver)\n    \n        if car_brand == \"BMW\":\n            car_home.find_new_cars().goto_bmw()  # Since the HomePage class find_new_cars() method is returning\n            # object of NewCarsPage class, we can directly call NewCarsPage methods by creating object of HomePage\n            # class and calling it's method.\n    \n            car_title = car_base.get_car_title()\n>           assert car_title == brand_title, \"Car title does not match for \" + car_brand + \" car.\"\nE           AssertionError: Car title does not match for BMW car.\nE           assert 'BMW Cars' == 'BMWsss Cars'\nE             \nE             - BMWsss Cars\nE             ?    ---\nE             + BMW Cars\n\ntest_carwale.py:74: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_init",
+    "time" : {
+      "start" : 1754639575863,
+      "stop" : 1754639590336,
+      "duration" : 14473
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "log_on_failure",
+    "time" : {
+      "start" : 1754639590336,
+      "stop" : 1754639590336,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+    "statusTrace" : "self = <Testcases.test_carwale.TestCarwale object at 0x00000201AB60F890>\ncar_brand = 'BMW', brand_title = 'BMWsss Cars'\n\n    @pytest.mark.parametrize(\"car_brand, brand_title\",\n                             excel_data_provider.get_data(\"NewCars\"))\n    def test_get_car_names_and_prices(self, car_brand, brand_title):\n        log.logger.info(\"Test select cars started\")\n    \n        car_home = CarWaleHomePage(self.driver)\n        car_base = CarBase(self.driver)\n    \n        if car_brand == \"BMW\":\n            car_home.find_new_cars().goto_bmw()  # Since the HomePage class find_new_cars() method is returning\n            # object of NewCarsPage class, we can directly call NewCarsPage methods by creating object of HomePage\n            # class and calling it's method.\n    \n            car_title = car_base.get_car_title()\n>           assert car_title == brand_title, \"Car title does not match for \" + car_brand + \" car.\"\nE           AssertionError: Car title does not match for BMW car.\nE           assert 'BMW Cars' == 'BMWsss Cars'\nE             \nE             - BMWsss Cars\nE             ?    ---\nE             + BMW Cars\n\ntest_carwale.py:74: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "25f35d39eb9f4504",
+      "name" : "log",
+      "source" : "25f35d39eb9f4504.txt",
+      "type" : "text/plain",
+      "size" : 300
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "log_on_failure::0",
+    "time" : {
+      "start" : 1754639594324,
+      "stop" : 1754639594599,
+      "duration" : 275
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "d040ba7201f3ace5",
+      "name" : "dologin",
+      "source" : "d040ba7201f3ace5.png",
+      "type" : "image/png",
+      "size" : 130487
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  }, {
+    "name" : "browser_init::0",
+    "time" : {
+      "start" : 1754639594602,
+      "stop" : 1754639594832,
+      "duration" : 230
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_carwale"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCarwale"
+  }, {
+    "name" : "host",
+    "value" : "INBGL1WLX54564"
+  }, {
+    "name" : "thread",
+    "value" : "18404-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_carwale"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "brand_title",
+    "value" : "'BMWsss Cars'"
+  }, {
+    "name" : "browser_init",
+    "value" : "'chrome'"
+  }, {
+    "name" : "car_brand",
+    "value" : "'BMW'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "b72fee9c4fa747c6",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[contains(text(),'Find New Cars')]\"}\n  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception\nStacktrace:\n\tGetHandleVerifier [0x0x7ff7a46ee415+77285]\n\tGetHandleVerifier [0x0x7ff7a46ee470+77376]\n\t(No symbol) [0x0x7ff7a44b9a6a]\n\t(No symbol) [0x0x7ff7a4510406]\n\t(No symbol) [0x0x7ff7a45106bc]\n\t(No symbol) [0x0x7ff7a4563ac7]\n\t(No symbol) [0x0x7ff7a453864f]\n\t(No symbol) [0x0x7ff7a456087f]\n\t(No symbol) [0x0x7ff7a45383e3]\n\t(No symbol) [0x0x7ff7a4501521]\n\t(No symbol) [0x0x7ff7a45022b3]\n\tGetHandleVerifier [0x0x7ff7a49d1efd+3107021]\n\tGetHandleVerifier [0x0x7ff7a49cc29d+3083373]\n\tGetHandleVerifier [0x0x7ff7a49ebedd+3213485]\n\tGetHandleVerifier [0x0x7ff7a470884e+184862]\n\tGetHandleVerifier [0x0x7ff7a471055f+216879]\n\tGetHandleVerifier [0x0x7ff7a46f7084+113236]\n\tGetHandleVerifier [0x0x7ff7a46f7239+113673]\n\tGetHandleVerifier [0x0x7ff7a46de298+11368]\n\tBaseThreadInitThunk [0x0x7ffb4d7ce8d7+23]\n\tRtlUserThreadStart [0x0x7ffb4ed3c34c+44]",
+      "time" : {
+        "start" : 1754639010804,
+        "stop" : 1754639018132,
+        "duration" : 7328
+      }
+    }, {
+      "uid" : "bb6d961ba87cb488",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+      "time" : {
+        "start" : 1754638419431,
+        "stop" : 1754638422674,
+        "duration" : 3243
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 2,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "ec2291e1d56c925a",
+        "reportUrl" : "http://localhost:8080/job/POM_By_RahulArora/4/allure/#testresult/ec2291e1d56c925a",
+        "status" : "failed",
+        "statusDetails" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+        "time" : {
+          "start" : 1754638419431,
+          "stop" : 1754638422674,
+          "duration" : 3243
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6d10e8b9612d91f9.json",
+  "parameterValues" : [ "'BMWsss Cars'", "'chrome'", "'BMW'" ]
+}

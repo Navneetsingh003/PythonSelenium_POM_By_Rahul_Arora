@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: Car title does not match for BMW car.\nassert 'BMW Cars' == 'BMWsss Cars'\n  \n  - BMWsss Cars\n  ?    ---\n  + BMW Cars",
+      "children" : [ {
+        "name" : "test_get_car_names_and_prices[chrome-BMW-BMWsss Cars]",
+        "uid" : "6d10e8b9612d91f9",
+        "parentUid" : "af8bdb70d812f915b9ac9e0a861cfb51",
+        "status" : "failed",
+        "time" : {
+          "start" : 1754639590337,
+          "stop" : 1754639593693,
+          "duration" : 3356
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'BMWsss Cars'", "'chrome'", "'BMW'" ]
+      } ],
+      "uid" : "af8bdb70d812f915b9ac9e0a861cfb51"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

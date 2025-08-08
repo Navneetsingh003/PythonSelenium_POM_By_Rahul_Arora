@@ -1,0 +1,4 @@
+INFO     Testcases.test_carwale:test_carwale.py:63 Test select cars started
+INFO     Pages.BasePage:BasePage.py:68 Moving to an element: new_car_XPATH
+INFO     Pages.BasePage:BasePage.py:26 Clicking on element: find_new_cars_XPATH
+INFO     Pages.BasePage:BasePage.py:26 Clicking on element: bmw_XPATH
