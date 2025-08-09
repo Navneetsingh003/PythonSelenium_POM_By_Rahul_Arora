@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 import allure
 from allure_commons.types import AttachmentType
@@ -26,13 +28,18 @@ def log_on_failure(request, browser_init):
         allure.attach(driver.get_screenshot_as_png(), name="dologin", attachment_type=AttachmentType.PNG)
 
 
-@pytest.fixture(params=["chrome"], scope="function")
+@pytest.fixture(params=["chrome", "firefox"], scope="function")
 def browser_init(request):
     global driver
+    remote_url = "http://localhost:4444/wd/hub"
     if request.param == "chrome":
-        driver = webdriver.Chrome()
+        # driver = webdriver.Chrome()
+        chrome_options = ChromeOptions()
+        driver = webdriver.Remote(command_executor=remote_url, options=chrome_options)
     elif request.param == "firefox":
-        driver = webdriver.Firefox()
+        # driver = webdriver.Firefox()
+        firefox_options = FirefoxOptions()
+        driver = webdriver.Remote(command_executor=remote_url, options=firefox_options)
 
     request.cls.driver = driver  # Scope of fixture is updated to class level. Using this statement, We have defined
     # driver at class level, so that we get the driver ref in all our test classes.
